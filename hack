@@ -35,3 +35,15 @@ for i in range(0, reps):
 # print (W.shape)
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+
+features = ["GRE Score", "TOEFL Score", "University Rating", "Statement of Purpose",
+ 				"Letter of Recommendation", "Cumulative GPA", "Research"]
+# userInput = however we're getting user input
+improve = []
+
+for i in range(0:7):
+	improve.append(W[i] * (x_max[i] - userInput[i]))
+
+index_max = np.argmax(improve)
+
+print("Area to improve on:" + features[inde_max])
