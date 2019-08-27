@@ -10,11 +10,13 @@ COLS = 7                #relevant categories
 #imports and formats dataset
 data = np.genfromtxt(CSV_PATH, delimiter = ",")
 data = data[1:, 1:]
-data = data[:, 7].reshape(500, 1)
+
+#expected chances of admission
+expected = data[:, 7].reshape(500, 1)
 
 #initialize cost and weight matrices
 cost = np.zeros((ENTRIES, COLS + 1))
-weights = np.ones((COL + 1, 1))
+weights = np.ones((COLS + 1, 1))
 
 #normalizing name column
 for i in range(0, ENTRIES):
@@ -23,7 +25,7 @@ for i in range(0, ENTRIES):
 #initialize cost matrix with dataset
 for i in range(1, COLS + 1):
     for j in range (0, ENTRIES):
-        cost[j, i] = data[j, i - 1]
+        cost[j, i] = expected[j, i - 1]
 
 #matrix of partial derivatives for computing direction of greatest descent
 #bias term is stored in data matrix
