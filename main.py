@@ -12,7 +12,7 @@ data = np.genfromtxt(CSV_PATH, delimiter = ",")
 data = data[1:, 1:]
 
 #expected chances of admission
-expected = data[:, 7].reshape(500, 1)
+expected = data[:, COLS].reshape(ENTRIES, 1)
 
 #initialize cost and weight matrices
 cost = np.zeros((ENTRIES, COLS + 1))
